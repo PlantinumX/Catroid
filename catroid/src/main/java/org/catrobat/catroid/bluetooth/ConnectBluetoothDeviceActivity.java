@@ -196,7 +196,7 @@ public class ConnectBluetoothDeviceActivity extends Activity {
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		createAndSetDeviceService();
@@ -207,6 +207,7 @@ public class ConnectBluetoothDeviceActivity extends Activity {
 		setResult(Activity.RESULT_CANCELED);
 
 		Button scanButton = (Button) findViewById(R.id.button_scan);
+		Button scanButtonLe = (Button) findViewById(R.id.button_scan_le);
 		scanButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -214,6 +215,16 @@ public class ConnectBluetoothDeviceActivity extends Activity {
 				view.setVisibility(View.GONE);
 			}
 		});
+
+		scanButtonLe.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				ToastUtil.showSuccess(getApplicationContext(),"CJE");
+				Log.d("BABY", "CHECKING");
+				view.setVisibility(View.GONE);
+			}
+		});
+		ToastUtil.showSuccess(getApplicationContext(),"Listing devices");
 
 		pairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
 		newDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
@@ -283,7 +294,6 @@ public class ConnectBluetoothDeviceActivity extends Activity {
 		setProgressBarIndeterminateVisibility(true);
 
 		findViewById(R.id.title_new_devices).setVisibility(View.VISIBLE);
-
 		findViewById(R.id.device_list_progress_bar).setVisibility(View.VISIBLE);
 
 		if (btManager.getBluetoothAdapter().isDiscovering()) {

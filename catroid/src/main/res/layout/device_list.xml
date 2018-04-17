@@ -42,9 +42,16 @@
         android:background="@color/bluetooth_device_list_divider_color" />
 
     <ListView
+        android:id="@+id/new_devices"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:layout_weight="2"
+        android:stackFromBottom="true" />
+
+    <ListView
         android:id="@+id/paired_devices"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="101dp"
         android:layout_weight="1"
         android:stackFromBottom="true" />
 
@@ -84,22 +91,27 @@
         android:layout_height="1dp"
         android:background="@color/bluetooth_device_list_divider_color" />
 
-    <ListView
-        android:id="@+id/new_devices"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_scan_le"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:stackFromBottom="true" />
+        android:layout_gravity="center"
+        android:layout_margin="4sp"
+        android:paddingBottom="@dimen/device_button_padding"
+        android:paddingTop="@dimen/device_button_padding"
+        android:text="Search Bluetooth LE devices" />
 
     <Button
         android:id="@+id/button_scan"
+        style="@android:style/Widget.Holo.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="4sp"
-        android:paddingTop="@dimen/device_button_padding"
         android:paddingBottom="@dimen/device_button_padding"
-        style="@android:style/Widget.Holo.Button"
+        android:paddingTop="@dimen/device_button_padding"
         android:text="@string/button_scan" />
+
 
 </LinearLayout>
