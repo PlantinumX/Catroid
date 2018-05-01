@@ -1458,7 +1458,7 @@ Wir möchten dich daran erinnern die Nutzungsbedingungen von Parrot sowie diese 
   <string name="formula_editor_image_button_description_delete">Löschen</string>
   <string name="formula_editor_variable_dialog_title">Neue Variable</string>
   <string name="formula_editor_list_dialog_title">Neue Liste</string>
-  <string name="formula_editor_dialog_for_all_sprites">Für alle Objekte</string>
+  <string name="formula_editor_dialog_for_all_sprites">Für alle Objekte aller Szenen</string>
   <string name="formula_editor_dialog_for_this_sprite_only">Nur für dieses Objekt</string>
   <string name="formula_editor_dialog_change_text">Text ändern</string>
   <string name="formula_editor_data_dialog_hint">Name eingeben</string>

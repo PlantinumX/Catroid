@@ -1468,7 +1468,7 @@ Eğer 16 yaşınızın altındaysanız, bu sözleşmeyi, yasal vasilerinizin (an
   <string name="formula_editor_image_button_description_delete">Sil</string>
   <string name="formula_editor_variable_dialog_title">Yeni değişken</string>
   <string name="formula_editor_list_dialog_title">Yeni liste</string>
-  <string name="formula_editor_dialog_for_all_sprites">Tüm nesneler için</string>
+  <string name="formula_editor_dialog_for_all_sprites">Sahnenin tüm nesneleri için</string>
   <string name="formula_editor_dialog_for_this_sprite_only">Sadece bu nesne için</string>
   <string name="formula_editor_dialog_change_text">Metni Değiştir</string>
   <string name="formula_editor_data_dialog_hint">Ad gir</string>
