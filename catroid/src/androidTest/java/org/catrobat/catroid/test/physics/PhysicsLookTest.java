@@ -72,7 +72,6 @@ public class PhysicsLookTest extends InstrumentationTestCase {
 	static {
 		GdxNativesLoader.load();
 	}
-
 	@Override
 	protected void setUp() throws Exception {
 		physicsWorld = new PhysicsWorld(1920, 1600);

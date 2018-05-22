@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -27,7 +26,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <CheckBox
         android:id="@+id/brick_speak_and_wait_checkbox"
@@ -44,15 +43,15 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
-        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing" >
+        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
 
-        <include layout="@layout/icon_brick_category_sound"/>
+        <include layout="@layout/icon_brick_category_sound" />
 
         <TextView
             android:id="@+id/brick_speak_and_wait_label"
             style="@style/BrickText.SingleLine"
-            android:text="@string/brick_speak" >
-        </TextView >
+            android:text="@string/brick_speak">
+        </TextView>
 
         <TextView
             android:id="@+id/brick_speak_and_wait_edit_text"
@@ -60,15 +59,15 @@
             android:layout_width="match_parent"
             app:layout_inputType="text"
             app:layout_textField="true"
-            android:gravity="start" >
-        </TextView >
+            android:gravity="start">
+        </TextView>
 
         <TextView
             android:id="@+id/brick_speak_and_wait"
             style="@style/BrickText.SingleLine"
-            android:text="@string/brick_speak_and_wait" >
-        </TextView >
+            android:text="@string/brick_speak_and_wait">
+        </TextView>
 
-    </org.catrobat.catroid.ui.BrickLayout >
+    </org.catrobat.catroid.ui.BrickLayout>
 
 </LinearLayout>

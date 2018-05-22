@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -22,13 +21,13 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/bottom_bar"
-              android:layout_width="match_parent"
-              android:layout_height="@dimen/activity_bottom_bar_height"
-              android:layout_alignParentBottom="true"
-              android:orientation="horizontal"
-              android:divider="@drawable/bottom_bar_divider"
-              android:showDividers="middle">
+    android:id="@+id/bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_bottom_bar_height"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:divider="@drawable/bottom_bar_divider"
+    android:showDividers="middle">
 
     <ImageButton
         style="@style/BottomBarButton"

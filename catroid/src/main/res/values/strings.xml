@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!--
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -1121,8 +1120,8 @@
     <string name="brick_when_condition_when">When</string>
     <string name="brick_when_becomes_true">becomes true</string>
     <string name="brick_wait">Wait</string>
-    <string name="brick_when_gamepad_button">When gamepad button</string >
-    <string name="brick_when_gamepad_button_tapped" >tapped</string >
+    <string name="brick_when_gamepad_button">When gamepad button</string>
+    <string name="brick_when_gamepad_button_tapped">tapped</string>
     <string name="brick_when_nfc">When NFC</string>
     <string name="brick_stop_script">Stop</string>
     <string name="brick_stop_this_script">this script</string>
@@ -1975,7 +1974,7 @@
     <string name="hertz_symbol">㎐</string>
 
     <!-- UtilFile SizeUnits String -->
-     <string name="Byte_short">B</string>
+    <string name="Byte_short">B</string>
      <string name="KiloByte_short">KB</string>
      <string name="MegaByte_short">MB</string>
      <string name="GigaByte_short">GB</string>

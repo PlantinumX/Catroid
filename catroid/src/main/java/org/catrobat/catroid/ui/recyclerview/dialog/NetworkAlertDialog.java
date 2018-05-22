@@ -55,7 +55,7 @@ public class NetworkAlertDialog extends AlertDialog {
 		setTitle(R.string.error_no_network_title);
 		((TextView) root.findViewById(R.id.headline_bricks))
 				.setText(getContext().getResources().getQuantityString(R.plurals.bricks_using_network_headline,
-				brickList.size()));
+						brickList.size()));
 
 		for (Brick brick : brickList) {
 			brickContainer.addView(brick.getPrototypeView(getContext()));

@@ -75,7 +75,7 @@ public class CameraBrickTest {
 		spinnerValues.add(R.string.video_brick_camera_on);
 		spinnerValues.add(R.string.video_brick_camera_off);
 		onBrickAtPosition(cameraBrickPosition).onSpinner(R.id.brick_video_spinner)
-			.checkValuesAvailable(spinnerValues);
+				.checkValuesAvailable(spinnerValues);
 	}
 
 	@Category({Cat.AppUi.class, Level.Smoke.class})

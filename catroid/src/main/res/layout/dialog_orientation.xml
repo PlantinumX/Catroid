@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -41,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.33"
             android:drawableStart="@drawable/dialog_orientation_portrait"
-            android:paddingLeft="@dimen/material_design_spacing_large"/>
+            android:paddingLeft="@dimen/material_design_spacing_large" />
 
         <RadioButton
             android:id="@+id/landscape_mode"
@@ -49,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.33"
             android:drawableStart="@drawable/dialog_orientation_landscape"
-            android:paddingLeft="@dimen/material_design_spacing_large"/>
+            android:paddingLeft="@dimen/material_design_spacing_large" />
 
          <RadioButton
              android:id="@+id/cast"
@@ -58,7 +57,7 @@
              android:layout_weight="0.33"
              android:drawableStart="@drawable/ic_tv_black_24dp"
              android:visibility="gone"
-             android:paddingLeft="@dimen/material_design_spacing_large"/>
+             android:paddingLeft="@dimen/material_design_spacing_large" />
 
     </RadioGroup>
 </ScrollView>

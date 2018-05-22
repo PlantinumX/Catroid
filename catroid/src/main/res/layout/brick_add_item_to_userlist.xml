@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -45,9 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
-        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing" >
+        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
 
-        <include layout="@layout/icon_brick_category_data"/>
+        <include layout="@layout/icon_brick_category_data" />
 
         <TextView
             android:id="@+id/brick_add_item_to_userlist_label"
@@ -58,7 +57,7 @@
             android:id="@+id/brick_add_item_to_userlist_edit_text"
             style="@style/BrickEditText"
             app:layout_inputType="number"
-            app:layout_textField="true"/>
+            app:layout_textField="true" />
 
         <TextView
             android:id="@+id/brick_add_item_to_userlist_textview"

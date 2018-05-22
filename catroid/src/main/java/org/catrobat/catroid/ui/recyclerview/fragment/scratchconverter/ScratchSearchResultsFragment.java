@@ -75,7 +75,9 @@ public class ScratchSearchResultsFragment extends Fragment implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NONE, CONVERT})
-	@interface ActionModeType {}
+	@interface ActionModeType {
+	}
+
 	private static final int NONE = 0;
 	private static final int CONVERT = 1;
 

@@ -50,7 +50,7 @@ public class RatePocketCodeDialogFragment extends DialogFragment {
 					public void onClick(DialogInterface dialog, int id) {
 						try {
 							startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="
-											+ getActivity().getPackageName())).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+									+ getActivity().getPackageName())).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 						} catch (ActivityNotFoundException anfe) {
 							startActivity(new Intent(Intent.ACTION_VIEW,
 									Uri.parse("https://play.google.com/store/apps/details?id="

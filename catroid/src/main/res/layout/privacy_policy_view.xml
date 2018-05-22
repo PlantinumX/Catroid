@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -39,12 +38,12 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_xxlarge"
             android:paddingBottom="@dimen/material_design_spacing_large"
-            android:text="@string/disclaimer_privacy_police_header_headline"/>
+            android:text="@string/disclaimer_privacy_police_header_headline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/disclaimer_privacy_policy_header"/>
+            android:text="@string/disclaimer_privacy_policy_header" />
 
     </LinearLayout>
 
@@ -82,7 +81,7 @@
             style="@style/BottomBarButton"
             android:id="@+id/accept"
             android:onClick="handleAgreedToPrivacyPolicyButton"
-            android:text="@string/agree"/>
+            android:text="@string/agree" />
 
     </LinearLayout>
 </RelativeLayout>

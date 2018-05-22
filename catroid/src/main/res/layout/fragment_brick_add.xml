@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -25,13 +24,13 @@
 
 <!-- Overdraw lint warning is ignored - fragments need refactoring -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/add_brick_fragment_list"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/app_background"
-              android:orientation="vertical"
-              tools:ignore="Overdraw" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_brick_fragment_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
 
     <ListView
         android:id="@android:id/list"

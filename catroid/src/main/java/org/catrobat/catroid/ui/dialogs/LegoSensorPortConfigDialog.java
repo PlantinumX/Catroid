@@ -47,12 +47,15 @@ public class LegoSensorPortConfigDialog extends DialogFragment {
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NXT, EV3})
-	public @interface LegoType {}
+	public @interface LegoType {
+	}
+
 	public static final int NXT = 0;
 	public static final int EV3 = 1;
 
 	private OnSetSensorListener listener;
-	private @LegoType int legoType;
+	private @LegoType
+	int legoType;
 	private SensorInfo sensorInfo;
 
 	private class SensorInfo {

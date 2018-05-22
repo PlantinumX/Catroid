@@ -56,6 +56,7 @@ public class JumpingSumoRotateLeftBrick extends FormulaBrick {
 				getFormulaWithBrickField(BrickField.JUMPING_SUMO_ROTATE)));
 		return null;
 	}
+
 	@Override
 	public void showFormulaEditorToEditFormula(View view) {
 		FormulaEditorFragment.showFragment(view, this, BrickField.JUMPING_SUMO_ROTATE);

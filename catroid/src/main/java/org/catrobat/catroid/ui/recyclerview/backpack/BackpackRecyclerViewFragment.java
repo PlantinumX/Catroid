@@ -59,7 +59,9 @@ public abstract class BackpackRecyclerViewFragment<T> extends Fragment implement
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NONE, UNPACK, DELETE})
-	@interface ActionModeType {}
+	@interface ActionModeType {
+	}
+
 	protected static final int NONE = 0;
 	protected static final int UNPACK = 1;
 	protected static final int DELETE = 2;

@@ -54,8 +54,9 @@ public class JumpingSumoDiscoverer {
 		/**
 		 * Called when the list of seen drones is updated
 		 * Called in the main thread
+		 *
 		 * @param dronesList list of ARDiscoveryDeviceService which represents all available drones
-		 * Content of this list respect the drone types given in startDiscovery
+		 *                   Content of this list respect the drone types given in startDiscovery
 		 */
 		void onDronesListUpdated(List<ARDiscoveryDeviceService> dronesList);
 	}
@@ -64,6 +65,7 @@ public class JumpingSumoDiscoverer {
 		/**
 		 * Called when the pic Count changes
 		 * Called in the main thread
+		 *
 		 * @param pictureCount the count of Pictures
 		 */
 		void onPictureCount(int pictureCount);
@@ -71,6 +73,7 @@ public class JumpingSumoDiscoverer {
 		/**
 		 * Called before medias will be downloaded
 		 * Called in the main thread
+		 *
 		 * @param matchingMedias the number of medias that will be downloaded
 		 */
 		void onMatchingMediasFound(int matchingMedias);
@@ -78,14 +81,16 @@ public class JumpingSumoDiscoverer {
 		/**
 		 * Called each time the progress of a download changes
 		 * Called in the main thread
+		 *
 		 * @param mediaName the name of the media
-		 * @param progress the progress of its download (from 0 to 100)
+		 * @param progress  the progress of its download (from 0 to 100)
 		 */
 		void onDownloadProgressed(String mediaName, int progress);
 
 		/**
 		 * Called when a media download has ended
 		 * Called in the main thread
+		 *
 		 * @param mediaName the name of the media
 		 */
 		void onDownloadComplete(String mediaName);
@@ -115,11 +120,11 @@ public class JumpingSumoDiscoverer {
 	}
 
 	/*
-	* Add a listener
-	* All callbacks of the interface Listener will be called within this function
-	* Should be called in the main thread
-	* @param listener an object that implements the {@link Listener} interface
-	*/
+	 * Add a listener
+	 * All callbacks of the interface Listener will be called within this function
+	 * Should be called in the main thread
+	 * @param listener an object that implements the {@link Listener} interface
+	 */
 	public void addListener(Listener listener) {
 		listeners.add(listener);
 		notifyServiceDiscovered(matchingDrones);
@@ -131,6 +136,7 @@ public class JumpingSumoDiscoverer {
 
 	/**
 	 * remove a listener from the listener list
+	 *
 	 * @param listener an object that implements the {@link Listener} interface
 	 */
 
@@ -208,6 +214,7 @@ public class JumpingSumoDiscoverer {
 			startDiscoveryAfterConnection = true;
 		}
 	}
+
 	/**
 	 * Stop discovering Parrot drones
 	 */

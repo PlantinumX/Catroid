@@ -71,7 +71,7 @@ public class RecyclerViewItemMatcher {
 						&& recyclerView.getId() == recyclerViewId
 						&& recyclerView.findViewHolderForAdapterPosition(position) != null
 						&& view == recyclerView.findViewHolderForAdapterPosition(position).itemView
-								.findViewById(viewId);
+						.findViewById(viewId);
 			}
 		};
 	}

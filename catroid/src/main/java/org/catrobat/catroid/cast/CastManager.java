@@ -364,7 +364,7 @@ public final class CastManager {
 				}
 				routeInfos.add(info);
 				castButton.setVisible(mediaRouter.isRouteAvailable(mediaRouteSelector, MediaRouter
-							.AVAILABILITY_FLAG_REQUIRE_MATCH));
+						.AVAILABILITY_FLAG_REQUIRE_MATCH));
 				deviceAdapter.notifyDataSetChanged();
 			}
 		}

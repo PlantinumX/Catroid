@@ -47,7 +47,7 @@ public final class JumpingSumoBrickFactory {
 	}
 
 	public static BrickBaseType getInstanceOfJumpingSumoBrick(JumpingSumoBricks brick, int timeInMilliseconds,
-														byte powerInPercent, byte volumeInPercent, float degree) {
+			byte powerInPercent, byte volumeInPercent, float degree) {
 		switch (brick) {
 			case JUMPING_SUMO_FORWARD:
 				return new JumpingSumoMoveForwardBrick(timeInMilliseconds, powerInPercent);

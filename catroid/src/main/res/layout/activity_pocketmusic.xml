@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -65,7 +64,7 @@
                         android:id="@+id/tact_scroller"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scrollbars="none"/>
+                        android:scrollbars="none" />
                     <org.catrobat.catroid.pocketmusic.fastscroller.FastScroller
                         android:id="@+id/fastscroll"
                         android:orientation="horizontal"
@@ -74,7 +73,7 @@
                         android:gravity="bottom"
                         android:layout_marginBottom="0dp"
                         android:layout_alignParentBottom="true"
-                        app:handleColor="@color/turquoise_play_line"/>
+                        app:handleColor="@color/turquoise_play_line" />
                 </RelativeLayout>
 
                 <View
@@ -82,7 +81,7 @@
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
                     android:background="@color/turquoise_play_line"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
             </FrameLayout>
         </LinearLayout>
     </RelativeLayout>

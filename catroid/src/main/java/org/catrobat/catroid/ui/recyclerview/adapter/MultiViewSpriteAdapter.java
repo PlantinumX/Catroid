@@ -50,7 +50,9 @@ public class MultiViewSpriteAdapter extends SpriteAdapter {
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({BACKGROUND, SPRITE_SINGLE, SPRITE_GROUP, SPRITE_GROUP_ITEM})
-	@interface ViewType {}
+	@interface ViewType {
+	}
+
 	private static final int BACKGROUND = 0;
 	private static final int SPRITE_SINGLE = 1;
 	private static final int SPRITE_GROUP = 2;
@@ -132,7 +134,8 @@ public class MultiViewSpriteAdapter extends SpriteAdapter {
 	}
 
 	@Override
-	public @ViewType int getItemViewType(int position) {
+	public @ViewType
+	int getItemViewType(int position) {
 		if (position == 0) {
 			return BACKGROUND;
 		}

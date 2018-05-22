@@ -37,14 +37,12 @@ public class DronePlayLedAnimationAction extends TemporalAction {
 	private float duration = 5.0f;
 
 	private static final HashMap<String, Integer> ANIMATION_TYPE_MAPPING;
-
 	static {
 		ANIMATION_TYPE_MAPPING = new HashMap<>();
 		for (ARDRONE_LED_ANIMATION ledType : ARDRONE_LED_ANIMATION.values()) {
 			ANIMATION_TYPE_MAPPING.put(ledType.name(), ARDRONE_LED_ANIMATION.valueOf(ledType.name()).ordinal());
 		}
 	}
-
 	public void setAnimationType(ARDRONE_LED_ANIMATION ledAnimationType) {
 		this.ledAnimationType = ledAnimationType;
 	}

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -37,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/formula_editor_function_collision"
-            android:paddingStart="@dimen/dialog_input_offset"/>
+            android:paddingStart="@dimen/dialog_input_offset" />
 
         <Spinner
             android:id="@+id/spinner"

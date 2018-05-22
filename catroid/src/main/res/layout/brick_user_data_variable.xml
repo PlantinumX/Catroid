@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -30,7 +29,7 @@
     android:paddingBottom="12dp"
     android:paddingStart="10dp"
     android:paddingEnd="10dp"
-    android:paddingTop="6dp" >
+    android:paddingTop="6dp">
 
     <TextView
         android:id="@+id/text_view"
@@ -44,7 +43,7 @@
         android:paddingTop="0dp"
         android:textColor="@color/solid_white"
         android:textSize="16sp"
-        android:textStyle="bold" >
+        android:textStyle="bold">
     </TextView>
 
     <TextView
@@ -56,7 +55,7 @@
         android:paddingTop="0dp"
         android:text="@string/separator"
         android:textColor="@color/solid_white"
-        android:textSize="20sp" >
+        android:textSize="20sp">
     </TextView>
 
     <Button

@@ -53,6 +53,7 @@ public class ReplaceExistingProjectDialogFragment extends DialogFragment {
 	public void setProgramName(String programName) {
 		this.programName = programName;
 	}
+
 	public void setURL(String url) {
 		this.url = url;
 	}

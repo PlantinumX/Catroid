@@ -61,6 +61,7 @@ public class JumpingSumoTurnAction extends TemporalAction {
 			}
 		}
 	}
+
 	@Override
 	protected void update(float percent) {
 		//Nothing to do

@@ -41,7 +41,9 @@ public class AccessibilityProfile {
 	@Retention(RetentionPolicy.SOURCE)
 	@StringDef({SERIF, DYSLEXIC, LARGE_TEXT, HIGH_CONTRAST, ICONS, LARGE_ICONS, ICON_HIGH_CONTRAST,
 			ELEMENT_SPACING, BEGINNER_BRICKS, DRAGNDROP_DELAY})
-	@interface AccessibilityFlags {}
+	@interface AccessibilityFlags {
+	}
+
 	static final String SERIF = "serif";
 	static final String DYSLEXIC = "dyslexic";
 	static final String LARGE_TEXT = "accessibility_large_text";

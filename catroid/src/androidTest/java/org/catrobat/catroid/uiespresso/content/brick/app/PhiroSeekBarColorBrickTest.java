@@ -90,13 +90,16 @@ public class PhiroSeekBarColorBrickTest {
 	}
 
 	@Parameter
-	public @IdRes int colorRgbSeekbarId;
+	public @IdRes
+	int colorRgbSeekbarId;
 
 	@Parameter(1)
-	public @IdRes int rgbValueId;
+	public @IdRes
+	int rgbValueId;
 
 	@Parameter(2)
-	public @IdRes int brickActionEditTextId;
+	public @IdRes
+	int brickActionEditTextId;
 
 	@Parameter(3)
 	public String testName;

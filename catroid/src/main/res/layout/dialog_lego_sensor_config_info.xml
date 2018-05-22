@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -29,10 +28,11 @@
     android:paddingEnd="@dimen/dialog_content_area_padding_input">
 
       <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
-        <TextView android:id="@+id/lego_sensor_config_info_text"
+        <TextView
+            android:id="@+id/lego_sensor_config_info_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -52,7 +52,8 @@
                     android:textStyle="bold"
                     android:text="@string/lego_port_1" />
 
-                <TextView android:id="@+id/lego_sensor_config_info_port_1_mapping"
+                <TextView
+                    android:id="@+id/lego_sensor_config_info_port_1_mapping"
                     style="@style/DialogMapping" />
 
             </LinearLayout>
@@ -67,7 +68,8 @@
                     android:textStyle="bold"
                     android:text="@string/lego_port_2" />
 
-                <TextView android:id="@+id/lego_sensor_config_info_port_2_mapping"
+                <TextView
+                    android:id="@+id/lego_sensor_config_info_port_2_mapping"
                     style="@style/DialogMapping" />
 
             </LinearLayout>
@@ -82,7 +84,8 @@
                     android:textStyle="bold"
                     android:text="@string/lego_port_3" />
 
-                <TextView android:id="@+id/lego_sensor_config_info_port_3_mapping"
+                <TextView
+                    android:id="@+id/lego_sensor_config_info_port_3_mapping"
                     style="@style/DialogMapping" />
 
             </LinearLayout>
@@ -97,20 +100,22 @@
                     android:textStyle="bold"
                     android:text="@string/lego_port_4" />
 
-                <TextView android:id="@+id/lego_sensor_config_info_port_4_mapping"
+                <TextView
+                    android:id="@+id/lego_sensor_config_info_port_4_mapping"
                     style="@style/DialogMapping" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <CheckBox android:id="@+id/lego_sensor_config_info_disable_show_dialog"
+        <CheckBox
+            android:id="@+id/lego_sensor_config_info_disable_show_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="@dimen/dialog_check_box_margin_bottom_right"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="@dimen/dialog_check_box_margin_bottom_right"
-            android:text="@string/lego_sensor_config_dont_show_again"/>
+            android:text="@string/lego_sensor_config_dont_show_again" />
     </TableLayout>
 </ScrollView>

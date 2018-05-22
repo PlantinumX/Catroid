@@ -108,7 +108,6 @@ public abstract class EV3Sensor implements MindstormsSensor {
 				LOOKUP.put(c.sensorConnectionByteCode, c);
 			}
 		}
-
 		public static SensorConnectionType getSensorConnectionTypeByValue(byte value) {
 			return LOOKUP.get(value & 0xFF);
 		}

@@ -96,10 +96,12 @@ public class FormulaEditorFunctionListTest {
 	}
 
 	@Parameter
-	public @StringRes int formulaEditorFunction;
+	public @StringRes
+	int formulaEditorFunction;
 
 	@Parameter(1)
-	public @StringRes int formulaEditorFunctionParameter;
+	public @StringRes
+	int formulaEditorFunctionParameter;
 
 	@Parameter(2)
 	public String testName;

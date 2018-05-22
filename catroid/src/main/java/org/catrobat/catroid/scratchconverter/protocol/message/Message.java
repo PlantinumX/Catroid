@@ -34,7 +34,6 @@ public abstract class Message {
 		private int categoryID;
 
 		private static SparseArray<CategoryType> categoryTypes = new SparseArray<>();
-
 		static {
 			for (CategoryType legEnum : CategoryType.values()) {
 				categoryTypes.put(legEnum.categoryID, legEnum);

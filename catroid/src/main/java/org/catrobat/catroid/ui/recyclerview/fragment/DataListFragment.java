@@ -73,7 +73,9 @@ public class DataListFragment extends Fragment implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NONE, DELETE})
-	@interface ActionModeType {}
+	@interface ActionModeType {
+	}
+
 	private static final int NONE = 0;
 	private static final int DELETE = 1;
 

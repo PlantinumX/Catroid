@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -23,11 +22,11 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical"
-              android:orientation="horizontal" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <CheckBox
         android:id="@+id/brick_raspi_when_checkbox"
@@ -42,15 +41,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
-        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing" >
+        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
 
-        <include layout="@layout/icon_brick_category_raspberrypi"/>
+        <include layout="@layout/icon_brick_category_raspberrypi" />
 
                     <TextView
                         android:id="@+id/raspi_when_label"
                         style="@style/BrickText.Multiple"
                         android:text="@string/brick_raspi_when_begin">
-                    </TextView >
+                    </TextView>
 
                     <Spinner
                         android:id="@+id/brick_raspi_when_pinspinner"
@@ -58,14 +57,14 @@
                         android:layout_height="wrap_content"
                         android:textDirection="locale"
                         android:clickable="false"
-                        android:focusable="false"/>
+                        android:focusable="false" />
 
                     <TextView
                         android:id="@+id/brick_raspi_when_label_second_part"
                         style="@style/BrickText.Multiple"
                         app:layout_newLine="true"
-                        android:text="@string/brick_raspi_when_equals" >
-                    </TextView >
+                        android:text="@string/brick_raspi_when_equals">
+                    </TextView>
 
                     <Spinner
                         android:id="@+id/brick_raspi_when_valuespinner"
@@ -75,6 +74,6 @@
                         android:clickable="false"
                         android:focusable="false" />
 
-    </org.catrobat.catroid.ui.BrickLayout >
+    </org.catrobat.catroid.ui.BrickLayout>
 
 </LinearLayout>

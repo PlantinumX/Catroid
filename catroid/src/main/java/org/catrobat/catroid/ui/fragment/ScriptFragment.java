@@ -78,7 +78,9 @@ public class ScriptFragment extends ListFragment implements OnCategorySelectedLi
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NONE, BACKPACK, COPY, DELETE, ENABLE_DISABLE})
-	@interface ActionModeType {}
+	@interface ActionModeType {
+	}
+
 	private static final int NONE = 0;
 	private static final int BACKPACK = 1;
 	private static final int COPY = 2;

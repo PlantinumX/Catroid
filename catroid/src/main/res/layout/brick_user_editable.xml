@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -27,14 +26,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <CheckBox
         android:id="@+id/brick_user_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
     </CheckBox>
 
     <org.catrobat.catroid.ui.DragNDropBrickLayout
@@ -42,7 +41,7 @@
         style="@style/BrickContainer.UserBrick.Small"
         android:orientation="horizontal"
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
-        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing" >
+        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
     </org.catrobat.catroid.ui.DragNDropBrickLayout>
 
 </LinearLayout>

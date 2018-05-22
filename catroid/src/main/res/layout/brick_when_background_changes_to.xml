@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -46,7 +45,7 @@
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
         app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
 
-        <include layout="@layout/icon_brick_category_event"/>
+        <include layout="@layout/icon_brick_category_event" />
 
         <TextView
             android:id="@+id/brick_when_background_text_view"

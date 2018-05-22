@@ -62,7 +62,9 @@ public class MainMenuFragment extends Fragment implements ButtonAdapter.OnItemCl
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({CONTINUE, NEW, PROGRAMS, HELP, EXPLORE, UPLOAD})
-	@interface ButtonId {}
+	@interface ButtonId {
+	}
+
 	private static final int CONTINUE = 0;
 	private static final int NEW = 1;
 	private static final int PROGRAMS = 2;

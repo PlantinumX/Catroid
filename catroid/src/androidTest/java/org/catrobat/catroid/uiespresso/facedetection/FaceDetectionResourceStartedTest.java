@@ -65,6 +65,7 @@ public class FaceDetectionResourceStartedTest {
 	@Rule
 	public BaseActivityInstrumentationRule<SpriteActivity> baseActivityTestRule = new
 			BaseActivityInstrumentationRule<>(SpriteActivity.class, SpriteActivity.EXTRA_FRAGMENT_POSITION, SpriteActivity.FRAGMENT_SCRIPTS);
+
 	@Before
 	public void setUp() throws Exception {
 	}

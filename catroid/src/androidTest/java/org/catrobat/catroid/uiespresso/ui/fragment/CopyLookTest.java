@@ -81,7 +81,7 @@ public class CopyLookTest {
 		onView(withText(R.string.copy)).perform(click());
 
 		onRecyclerView().atPosition(0)
-			.performCheckItem();
+				.performCheckItem();
 
 		onView(withId(R.id.confirm)).perform(click());
 

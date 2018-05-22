@@ -66,7 +66,9 @@ public abstract class RecyclerViewFragment<T> extends Fragment implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NONE, BACKPACK, COPY, DELETE, RENAME})
-	@interface ActionModeType {}
+	@interface ActionModeType {
+	}
+
 	protected static final int NONE = 0;
 	protected static final int BACKPACK = 1;
 	protected static final int COPY = 2;

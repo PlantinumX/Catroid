@@ -112,7 +112,7 @@ public class CollisionInformationTest extends InstrumentationTestCase {
 		assertThat(collisionPolygons.length, is(greaterThan(0)));
 		Assert.assertEquals(1, collisionPolygons.length);
 		Assert.assertTrue(Arrays.equals(collisionPolygons[0].getVertices(),
-						new float[] {0.0f, 47.0f, 17.0f, 98.0f, 52.0f, 98.0f, 68.0f, 44.0f, 52.0f, 0.0f, 17.0f, 0.0f}));
+				new float[] {0.0f, 47.0f, 17.0f, 98.0f, 52.0f, 98.0f, 68.0f, 44.0f, 52.0f, 0.0f, 17.0f, 0.0f}));
 	}
 
 	public void testWriteReadCollisionVerticesToPNGMeta() throws IOException {

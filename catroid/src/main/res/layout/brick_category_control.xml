@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -24,7 +23,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/BrickCategory.Control">
 
-    <include layout="@layout/icon_brick_category_control"/>
+    <include layout="@layout/icon_brick_category_control" />
 
     <TextView
         style="@style/BrickCategoryText"

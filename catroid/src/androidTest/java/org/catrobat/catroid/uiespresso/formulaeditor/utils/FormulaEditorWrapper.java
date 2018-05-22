@@ -45,7 +45,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.catrobat.catroid.uiespresso.formulaeditor.utils.FormulaEditorCategoryListWrapper.onCategoryList;
 import static org.hamcrest.Matchers.equalToIgnoringWhiteSpace;
 
-public final class FormulaEditorWrapper{
+public final class FormulaEditorWrapper {
 	public static final Matcher<View> FORMULA_EDITOR_KEYBOARD_MATCHER = withId(R.id.formula_editor_keyboardview);
 	public static final Matcher<View> FORMULA_EDITOR_TEXT_FIELD_MATCHER = withId(R.id.formula_editor_edit_field);
 

@@ -27,7 +27,7 @@ import android.support.test.espresso.action.CoordinatesProvider;
 import android.util.Log;
 import android.view.View;
 
-public enum BrickCoordinatesProvider implements CoordinatesProvider{
+public enum BrickCoordinatesProvider implements CoordinatesProvider {
 	UPPER_LEFT_CORNER {
 		@Override
 		public float[] calculateCoordinates(View view) {

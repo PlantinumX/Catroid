@@ -46,6 +46,7 @@ public class JumpingSumoJumpHighAction extends TemporalAction {
 			Log.d(TAG, "send jump high command JS down");
 		}
 	}
+
 	@Override
 	protected void update(float percent) {
 		//Nothing to do

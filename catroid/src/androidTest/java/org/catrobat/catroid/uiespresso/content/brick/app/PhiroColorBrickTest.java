@@ -81,10 +81,12 @@ public class PhiroColorBrickTest {
 	}
 
 	@Parameter
-	public @IdRes int brickActionEditTextId;
+	public @IdRes
+	int brickActionEditTextId;
 
 	@Parameter(1)
-	public @IdRes int rgbValueId;
+	public @IdRes
+	int rgbValueId;
 
 	@Parameter(2)
 	public String testName;

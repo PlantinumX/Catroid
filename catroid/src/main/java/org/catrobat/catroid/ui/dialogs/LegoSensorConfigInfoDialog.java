@@ -47,11 +47,14 @@ import static org.catrobat.catroid.ui.settingsfragments.SettingsFragment.SETTING
 public class LegoSensorConfigInfoDialog extends DialogFragment {
 	public static final String DIALOG_FRAGMENT_TAG = "dialog_lego_sensor_config_info";
 
-	private @LegoSensorType int legoSensorType;
+	private @LegoSensorType
+	int legoSensorType;
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({NXT, EV3})
-	public @interface LegoSensorType {}
+	public @interface LegoSensorType {
+	}
+
 	public static final int NXT = 0;
 	public static final int EV3 = 1;
 

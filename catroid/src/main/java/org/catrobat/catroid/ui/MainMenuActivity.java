@@ -89,7 +89,9 @@ public class MainMenuActivity extends BaseCastActivity implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({PROGRESS_BAR, FRAGMENT, ERROR})
-	@interface Content {}
+	@interface Content {
+	}
+
 	protected static final int PROGRESS_BAR = 0;
 	protected static final int FRAGMENT = 1;
 	protected static final int ERROR = 2;
@@ -152,9 +154,9 @@ public class MainMenuActivity extends BaseCastActivity implements
 			onPermissionsGranted();
 		} else {
 			ActivityCompat.requestPermissions(
-							this,
-							new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-							ACCESS_STORAGE);
+					this,
+					new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+					ACCESS_STORAGE);
 		}
 	}
 

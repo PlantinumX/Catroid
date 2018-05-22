@@ -29,9 +29,11 @@ import android.view.WindowManager;
 
 public class OpenSoftkeyboardRightAway implements View.OnFocusChangeListener {
 	private Dialog dialog;
+
 	public OpenSoftkeyboardRightAway(Dialog dialog) {
 		this.dialog = dialog;
 	}
+
 	public void onFocusChange(View v, boolean hasFocus) {
 		if (hasFocus) {
 			dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);

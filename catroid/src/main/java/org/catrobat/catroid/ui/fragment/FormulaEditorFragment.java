@@ -35,6 +35,7 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -47,6 +48,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -76,6 +78,8 @@ import org.catrobat.catroid.ui.recyclerview.fragment.DataListFragment;
 import org.catrobat.catroid.utils.SnackbarUtil;
 import org.catrobat.catroid.utils.ToastUtil;
 
+import java.util.Map;
+
 import static org.catrobat.catroid.utils.SnackbarUtil.wasHintAlreadyShown;
 
 public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.OnGlobalLayoutListener,
@@ -95,16 +99,15 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 	private Context context;
 	private static FormulaEditorEditText formulaEditorEditText;
+	private static View brickView;
 	private TableLayout formulaEditorKeyboard;
 	private static LinearLayout formulaEditorBrick;
-	private static View brickView;
 	private View fragmentView;
 
 	private static FormulaBrick formulaBrick;
 	private FormulaBrick clonedFormulaBrick;
 	private static Brick.BrickField currentBrickField;
 	private static Formula currentFormula;
-	private Menu currentMenu;
 	private FormulaElement formulaElementForComputeDialog;
 
 	private long[] confirmSwitchEditTextTimeStamp = {0, 0};
@@ -156,6 +159,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 		if (formulaEditorFragment == null) {
 			formulaEditorFragment = new FormulaEditorFragment();
+
 			formulaEditorFragment.showCustomView = showCustomView;
 			Bundle bundle = new Bundle();
 			bundle.putSerializable(FORMULA_BRICK_BUNDLE_ARGUMENT, formulaBrick);
@@ -226,7 +230,6 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 	}
 
 	public static void overwriteFormula(View view, Formula newFormula) {
-
 		Activity activity = (Activity) view.getContext();
 
 		FormulaEditorFragment formulaEditorFragment = (FormulaEditorFragment) activity.getFragmentManager()
@@ -237,6 +240,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 		}
 
 		formulaEditorEditText.overwriteCurrentFormula(newFormula.getInternFormulaState());
+		activity.invalidateOptionsMenu();
 	}
 
 	public static void changeInputField(View view, Brick.BrickField brickField) {
@@ -304,6 +308,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 		fragmentView.setFocusableInTouchMode(true);
 		fragmentView.requestFocus();
 
+
 		context = getActivity();
 
 		brickView = getBrickOrCustomView();
@@ -314,6 +319,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 		formulaEditorKeyboard = (TableLayout) fragmentView.findViewById(R.id.formula_editor_keyboardview);
 		formulaEditorEditText.init(this);
+
 
 		fragmentView.getViewTreeObserver().addOnGlobalLayoutListener(this);
 
@@ -511,7 +517,6 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 	@Override
 	public void onPrepareOptionsMenu(Menu menu) {
-		currentMenu = menu;
 
 		for (int index = 0; index < menu.size(); index++) {
 			menu.getItem(index).setVisible(false);
@@ -565,7 +570,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 		switch (mode) {
 			case SET_FORMULA_ON_CREATE_VIEW:
-				formulaEditorEditText.enterNewFormula(currentFormula.getInternFormulaState());
+				formulaEditorEditText.enterNewFormula(currentFormula.getInternFormulaState(),brickField);
 				currentFormula.highlightTextField(brickView);
 				refreshFormulaPreviewString();
 				break;
@@ -584,20 +589,9 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 						return;
 					}
 				}
-				MenuItem undo = currentMenu.findItem(R.id.menu_undo);
-				if (undo != null) {
-					undo.setIcon(R.drawable.icon_undo_disabled);
-					undo.setEnabled(false);
-				}
-
-				MenuItem redo = currentMenu.findItem(R.id.menu_redo);
-				redo.setIcon(R.drawable.icon_redo_disabled);
-				redo.setEnabled(false);
-
-				formulaEditorEditText.endEdit();
 				currentBrickField = brickField;
 				currentFormula = newFormula;
-				formulaEditorEditText.enterNewFormula(newFormula.getInternFormulaState());
+				formulaEditorEditText.enterNewFormula(newFormula.getInternFormulaState(),brickField);
 				refreshFormulaPreviewString();
 				break;
 			default:

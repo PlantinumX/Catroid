@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -28,7 +27,7 @@
     android:orientation="vertical"
     android:paddingStart="@dimen/dialog_relative_layout_padding"
     android:paddingEnd="@dimen/dialog_relative_layout_padding"
-    android:rotation="90" >
+    android:rotation="90">
 
     <TextView
         android:id="@+id/formula_editor_compute_dialog_textview_landscape_mode"

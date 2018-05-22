@@ -64,7 +64,9 @@ public class ScratchConverterActivity extends BaseActivity implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({FRAGMENT_SEARCH, FRAGMENT_PROJECTS})
-	@interface FragmentPosition {}
+	@interface FragmentPosition {
+	}
+
 	public static final int FRAGMENT_SEARCH = 0;
 	public static final int FRAGMENT_PROJECTS = 1;
 

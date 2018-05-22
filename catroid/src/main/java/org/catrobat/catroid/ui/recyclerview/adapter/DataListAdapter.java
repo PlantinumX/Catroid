@@ -46,7 +46,9 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({VAR_GLOBAL, VAR_LOCAL, LIST_GLOBAL, LIST_LOCAL})
-	@interface DataType {}
+	@interface DataType {
+	}
+
 	private static final int VAR_GLOBAL = 0;
 	private static final int VAR_LOCAL = 1;
 	private static final int LIST_GLOBAL = 2;
@@ -75,7 +77,7 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 		};
 		globalVarAdapter.setSelectionListener(this);
 
-		localVarAdapter = new VariableRVAdapter(localVars){
+		localVarAdapter = new VariableRVAdapter(localVars) {
 			@Override
 			public void onBindViewHolder(CheckableVH holder, int position) {
 				super.onBindViewHolder(holder, position);
@@ -83,6 +85,7 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 					((TextView) holder.itemView.findViewById(R.id.headline)).setText(R.string.local_vars_headline);
 				}
 			}
+
 			@Override
 			protected void onCheckBoxClick(int position) {
 				super.onCheckBoxClick(getRelativeItemPosition(position, VAR_LOCAL));
@@ -98,6 +101,7 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 					((TextView) holder.itemView.findViewById(R.id.headline)).setText(R.string.global_lists_headline);
 				}
 			}
+
 			@Override
 			protected void onCheckBoxClick(int position) {
 				super.onCheckBoxClick(getRelativeItemPosition(position, LIST_GLOBAL));
@@ -113,6 +117,7 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 					((TextView) holder.itemView.findViewById(R.id.headline)).setText(R.string.local_lists_headline);
 				}
 			}
+
 			@Override
 			protected void onCheckBoxClick(int position) {
 				super.onCheckBoxClick(getRelativeItemPosition(position, LIST_LOCAL));
@@ -139,7 +144,8 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 		}
 	}
 
-	private @DataType int getDataType(int position) {
+	private @DataType
+	int getDataType(int position) {
 		if (position < globalVarAdapter.getItemCount()) {
 			return VAR_GLOBAL;
 		}
@@ -194,7 +200,8 @@ public class DataListAdapter extends RecyclerView.Adapter<CheckableVH> implement
 	}
 
 	@Override
-	public @LayoutRes int getItemViewType(int position) {
+	public @LayoutRes
+	int getItemViewType(int position) {
 		@DataType
 		int dataType = getDataType(position);
 		position = getRelativeItemPosition(position, dataType);

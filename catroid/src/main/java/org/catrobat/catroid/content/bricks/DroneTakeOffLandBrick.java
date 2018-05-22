@@ -33,7 +33,7 @@ import org.catrobat.catroid.content.Sprite;
 
 import java.util.List;
 
-public class DroneTakeOffLandBrick extends BrickBaseType{
+public class DroneTakeOffLandBrick extends BrickBaseType {
 	private static final long serialVersionUID = 1L;
 
 	@Override

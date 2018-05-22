@@ -40,10 +40,10 @@ public class CheckTokenTask extends AsyncTask<String, Void, Boolean[]> {
 	@Override
 	protected Boolean[] doInBackground(String... arg0) {
 		try {
-			return new Boolean[]{ServerCalls.getInstance().checkToken(arg0[0], arg0[1]), false};
+			return new Boolean[] {ServerCalls.getInstance().checkToken(arg0[0], arg0[1]), false};
 		} catch (WebconnectionException e) {
 			Log.e(TAG, Log.getStackTraceString(e));
-			return new Boolean[]{false, true};
+			return new Boolean[] {false, true};
 		}
 	}
 

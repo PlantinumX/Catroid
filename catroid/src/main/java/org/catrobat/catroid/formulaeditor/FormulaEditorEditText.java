@@ -36,6 +36,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.EditText;
 
+import org.catrobat.catroid.content.bricks.Brick;
 import org.catrobat.catroid.formulaeditor.InternFormula.TokenSelectionType;
 import org.catrobat.catroid.ui.fragment.FormulaEditorFragment;
 
@@ -44,7 +45,8 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 
 	private static final BackgroundColorSpan COLOR_ERROR = new BackgroundColorSpan(0xFFF00000);
 	private static final BackgroundColorSpan COLOR_HIGHLIGHT = new BackgroundColorSpan(0xFF33B5E5);
-	private static FormulaEditorHistory history = null;
+	private static FormulaEditorHistory[] historys = {null,null,null};
+	private int lastState = 0;
 	FormulaEditorFragment formulaEditorFragment = null;
 	private int absoluteCursorPosition = 0;
 	private InternFormula internFormula;
@@ -55,7 +57,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		@Override
 		public boolean onDoubleTap(MotionEvent event) {
 			internFormula.setCursorAndSelection(absoluteCursorPosition, true);
-			history.updateCurrentSelection(internFormula.getSelection());
+			historys[lastState].updateCurrentSelection(internFormula.getSelection());
 			highlightSelection();
 			return true;
 		}
@@ -118,8 +120,8 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 				internFormula.setCursorAndSelection(absoluteCursorPosition, false);
 
 				highlightSelection();
-				history.updateCurrentSelection(internFormula.getSelection());
-				history.updateCurrentCursor(absoluteCursorPosition);
+				historys[lastState].updateCurrentSelection(internFormula.getSelection());
+				historys[lastState].updateCurrentCursor(absoluteCursorPosition);
 
 				formulaEditorFragment.refreshFormulaPreviewString();
 				formulaEditorFragment.updateButtonsOnKeyboardAndInvalidateOptionsMenu();
@@ -137,6 +139,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	public FormulaEditorEditText(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.context = context;
+
 	}
 
 	public void init(FormulaEditorFragment formulaEditorFragment) {
@@ -157,10 +160,32 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		internFormula.selectWholeFormula();
 		highlightSelection();
 
-		if (history == null) {
-			history = new FormulaEditorHistory(internFormula.getInternFormulaState());
+		if (historys[lastState] == null) {
+			historys[lastState] = new FormulaEditorHistory(internFormula.getInternFormulaState());
 		} else {
-			history.init(internFormula.getInternFormulaState());
+			historys[lastState].init(internFormula.getInternFormulaState());
+		}
+	}
+
+	public void enterNewFormula(InternFormulaState internFormulaState,Brick.BrickField brickField){
+		internFormula = internFormulaState.createInternFormulaFromState();
+		internFormula.generateExternFormulaStringAndInternExternMapping(context);
+
+		updateTextAndCursorFromInternFormula();
+
+		System.out.println(brickField.name());
+		lastState = getBrickfieldColour(brickField);
+
+		internFormula.selectWholeFormula();
+		highlightSelection();
+
+		if(historys[lastState] == null)
+		{
+			historys[lastState] = new FormulaEditorHistory(internFormula.getInternFormulaState());
+
+		} else {
+			historys[lastState].init(internFormula.getInternFormulaState());
+
 		}
 	}
 
@@ -173,7 +198,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		internFormula.selectWholeFormula();
 		highlightSelection();
 
-		history.push(internFormula.getInternFormulaState());
+		historys[lastState].push(internFormula.getInternFormulaState());
 		String resultingText = updateTextAndCursorFromInternFormula();
 		setSelection(absoluteCursorPosition);
 		formulaEditorFragment.refreshFormulaPreviewString(resultingText);
@@ -184,7 +209,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 			return;
 		}
 		internFormula.updateVariableReferences(oldName, newName, this.context);
-		history.push(internFormula.getInternFormulaState());
+		historys[lastState].push(internFormula.getInternFormulaState());
 		String resultingText = updateTextAndCursorFromInternFormula();
 		setSelection(absoluteCursorPosition);
 		formulaEditorFragment.refreshFormulaPreviewString(resultingText);
@@ -195,7 +220,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 			return;
 		}
 		internFormula.updateListReferences(oldName, newName, this.context);
-		history.push(internFormula.getInternFormulaState());
+		historys[lastState].push(internFormula.getInternFormulaState());
 		String resultingText = updateTextAndCursorFromInternFormula();
 		setSelection(absoluteCursorPosition);
 		formulaEditorFragment.refreshFormulaPreviewString(resultingText);
@@ -259,7 +284,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 
 	public void handleKeyEvent(int resource, String name) {
 		internFormula.handleKeyInput(resource, context, name);
-		history.push(internFormula.getInternFormulaState());
+		historys[lastState].push(internFormula.getInternFormulaState());
 		String resultingText = updateTextAndCursorFromInternFormula();
 		setSelection(absoluteCursorPosition);
 		formulaEditorFragment.refreshFormulaPreviewString(resultingText);
@@ -276,22 +301,30 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	public void overrideSelectedText(String string) {
 		internFormula.overrideSelectedText(string, context);
 
-		history.push(internFormula.getInternFormulaState());
+		historys[lastState].push(internFormula.getInternFormulaState());
 		String resultingText = updateTextAndCursorFromInternFormula();
 		setSelection(absoluteCursorPosition);
 		formulaEditorFragment.refreshFormulaPreviewString(resultingText);
 	}
 
 	public boolean hasChanges() {
-		return history != null && history.hasUnsavedChanges();
+		return historys[lastState] != null && historys[lastState].hasUnsavedChanges();
 	}
 
 	public void formulaSaved() {
-		history.changesSaved();
+		historys[lastState].changesSaved();
 	}
 
 	public void endEdit() {
-		history.clear();
+		for(int i = 0;i < 3;i++)
+		{
+			if(historys[i] != null)
+				historys[i].clear();
+
+		}
+
+
+		//historys[lastState].clear();
 	}
 
 	public void quickSelect() {
@@ -300,10 +333,10 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	}
 
 	public boolean undo() {
-		if (!history.undoIsPossible()) {
+		if (!historys[lastState].undoIsPossible()) {
 			return false;
 		}
-		InternFormulaState lastStep = history.backward();
+		InternFormulaState lastStep = historys[lastState].backward();
 		if (lastStep != null) {
 
 			internFormula = lastStep.createInternFormulaFromState();
@@ -317,10 +350,10 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	}
 
 	public boolean redo() {
-		if (!history.redoIsPossible()) {
+		if (!historys[lastState].redoIsPossible()) {
 			return false;
 		}
-		InternFormulaState nextStep = history.forward();
+		InternFormulaState nextStep = historys[lastState].forward();
 		if (nextStep != null) {
 
 			internFormula = nextStep.createInternFormulaFromState();
@@ -345,6 +378,27 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		return newExternFormulaString;
 	}
 
+	private int getBrickfieldColour(Brick.BrickField brickField){
+		switch (brickField.name())
+		{
+			case "PEN_COLOR_RED":
+				return 0;
+			case "PEN_COLOR_GREEN":
+				return 1;
+			case "PEN_COLOR_BLUE":
+				return 2;
+			case "PHIRO_LIGHT_RED":
+				return 0;
+			case "PHIRO_LIGHT_GREEN":
+				return 1;
+			case "PHIRO_LIGHT_BLUE":
+				return 2;
+			default:
+				return 0;
+		}
+	}
+
+
 	@Override
 	public boolean onTouch(View view, MotionEvent motion) {
 		return gestureDetector.onTouchEvent(motion);
@@ -368,7 +422,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	}
 
 	public FormulaEditorHistory getHistory() {
-		return history;
+		return historys[lastState];
 	}
 
 	public boolean isThereSomethingToDelete() {

@@ -40,7 +40,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SDCardModule extends AppCompatActivity{
+public class SDCardModule extends AppCompatActivity {
 
 	private static final String TAG = "SDCardModule";
 	int pictureCount = -1;
@@ -52,6 +52,7 @@ public class SDCardModule extends AppCompatActivity{
 		/**
 		 * Called before medias will be downloaded
 		 * Called on a separate thread
+		 *
 		 * @param matchingMedias the number of medias that will be downloaded
 		 */
 		void onMatchingMediasFound(int matchingMedias);
@@ -59,14 +60,16 @@ public class SDCardModule extends AppCompatActivity{
 		/**
 		 * Called each time the progress of a download changes
 		 * Called on a separate thread
+		 *
 		 * @param mediaName the name of the media
-		 * @param progress the progress of its download (from 0 to 100)
+		 * @param progress  the progress of its download (from 0 to 100)
 		 */
 		void onDownloadProgressed(String mediaName, int progress);
 
 		/**
 		 * Called when a media download has ended
 		 * Called on a separate thread
+		 *
 		 * @param mediaName the name of the media
 		 */
 		void onDownloadComplete(String mediaName);
@@ -270,16 +273,17 @@ public class SDCardModule extends AppCompatActivity{
 
 	private final ARDataTransferMediasDownloaderProgressListener progressListener = new
 			ARDataTransferMediasDownloaderProgressListener() {
-		private int lastProgressSent = -1;
-		@Override
-		public void didMediaProgress(Object arg, ARDataTransferMedia media, float percent) {
-			final int progressInt = (int) Math.floor(percent);
-			if (lastProgressSent != progressInt) {
-				lastProgressSent = progressInt;
-				notifyDownloadProgressed(media.getName(), progressInt);
-			}
-		}
-	};
+				private int lastProgressSent = -1;
+
+				@Override
+				public void didMediaProgress(Object arg, ARDataTransferMedia media, float percent) {
+					final int progressInt = (int) Math.floor(percent);
+					if (lastProgressSent != progressInt) {
+						lastProgressSent = progressInt;
+						notifyDownloadProgressed(media.getName(), progressInt);
+					}
+				}
+			};
 
 	private final ARDataTransferMediasDownloaderCompletionListener completionListener = new ARDataTransferMediasDownloaderCompletionListener() {
 		@Override

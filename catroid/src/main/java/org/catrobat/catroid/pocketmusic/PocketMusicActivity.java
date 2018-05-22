@@ -63,6 +63,7 @@ public class PocketMusicActivity extends BaseActivity {
 	private MidiNotePlayer midiDriver;
 
 	private FastScroller fastScroller;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

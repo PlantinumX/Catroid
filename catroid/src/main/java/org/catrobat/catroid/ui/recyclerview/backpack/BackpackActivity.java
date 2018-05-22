@@ -107,7 +107,7 @@ public class BackpackActivity extends BaseActivity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		BackpackRecyclerViewFragment currentFragment = ((BackpackRecyclerViewFragment) getFragmentManager()
 				.findFragmentById(R.id
-				.fragment_container));
+						.fragment_container));
 
 		menu.findItem(R.id.show_details).setVisible(currentFragment.hasDetails);
 		return true;

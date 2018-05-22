@@ -204,6 +204,7 @@ public class JumpingSumoInitializer {
 		@Override
 		public void onMatchingMediasFound(int matchingMedias) {
 		}
+
 		@Override
 		public void onDownloadProgressed(String mediaName, int progress) {
 		}

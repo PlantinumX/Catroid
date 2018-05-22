@@ -149,17 +149,17 @@ public class FormulaEditorComputeDialogTest {
 
 	public static ViewAction clickWithOffset(final int xOffset, final int yOffset) {
 		return new GeneralClickAction(
-			Tap.SINGLE,
-			new CoordinatesProvider() {
-				@Override
-				public float[] calculateCoordinates(View view) {
-					final int[] viewsCoordinates = new int[2];
-					view.getLocationOnScreen(viewsCoordinates);
+				Tap.SINGLE,
+				new CoordinatesProvider() {
+					@Override
+					public float[] calculateCoordinates(View view) {
+						final int[] viewsCoordinates = new int[2];
+						view.getLocationOnScreen(viewsCoordinates);
 
-					float[] clickCoordinates = {viewsCoordinates[0] + xOffset, viewsCoordinates[1] + yOffset};
-					return clickCoordinates;
-				}
-			},
-			Press.FINGER);
+						float[] clickCoordinates = {viewsCoordinates[0] + xOffset, viewsCoordinates[1] + yOffset};
+						return clickCoordinates;
+					}
+				},
+				Press.FINGER);
 	}
 }

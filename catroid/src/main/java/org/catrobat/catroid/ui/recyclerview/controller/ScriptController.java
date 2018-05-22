@@ -150,33 +150,33 @@ public class ScriptController {
 			if (brick instanceof SetLookBrick) {
 				((SetLookBrick) brick)
 						.setLook(lookController
-						.unpackForSprite(((SetLookBrick) brick).getLook(),
-								dstScene,
-								dstSprite));
+								.unpackForSprite(((SetLookBrick) brick).getLook(),
+										dstScene,
+										dstSprite));
 			}
 
 			if (brick instanceof WhenBackgroundChangesBrick) {
 				((WhenBackgroundChangesBrick) brick)
 						.setLook(lookController
-						.unpackForSprite(((WhenBackgroundChangesBrick) brick).getLook(),
-								dstScene,
-								dstSprite));
+								.unpackForSprite(((WhenBackgroundChangesBrick) brick).getLook(),
+										dstScene,
+										dstSprite));
 			}
 
 			if (brick instanceof PlaySoundBrick) {
 				((PlaySoundBrick) brick)
 						.setSound(soundController
-						.unpackForSprite(((PlaySoundBrick) brick).getSound(),
-								dstScene,
-								dstSprite));
+								.unpackForSprite(((PlaySoundBrick) brick).getSound(),
+										dstScene,
+										dstSprite));
 			}
 
 			if (brick instanceof PlaySoundAndWaitBrick) {
 				((PlaySoundAndWaitBrick) brick)
 						.setSound(soundController
-						.unpackForSprite(((PlaySoundAndWaitBrick) brick).getSound(),
-								dstScene,
-								dstSprite));
+								.unpackForSprite(((PlaySoundAndWaitBrick) brick).getSound(),
+										dstScene,
+										dstSprite));
 			}
 		}
 

@@ -118,7 +118,8 @@ public class FormulaEditorEditTextGenericTests {
 	}
 
 	@Parameter
-	public @StringRes Matcher<View> formulaEditorKeyboardButton;
+	public @StringRes
+	Matcher<View> formulaEditorKeyboardButton;
 
 	@Parameter(1)
 	public String shouldBe;

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -23,11 +22,11 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical"
-              android:orientation="horizontal" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
    <CheckBox
        android:id="@+id/brick_phiro_rgb_led_action_checkbox"
@@ -43,13 +42,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:horizontalSpacing="@dimen/brick_flow_layout_horizontal_spacing"
-        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing" >
+        app:verticalSpacing="@dimen/brick_flow_layout_vertical_spacing">
 
-           <include layout="@layout/icon_brick_category_phiro"/>
+           <include layout="@layout/icon_brick_category_phiro" />
            <TextView
                android:id="@+id/brick_phiro_rgb_led_action_label"
                style="@style/BrickText.SingleLine"
-               android:text="@string/brick_phiro_rgb_led_action" >
+               android:text="@string/brick_phiro_rgb_led_action">
            </TextView>
 
            <Spinner
@@ -59,49 +58,49 @@
                android:layout_height="wrap_content"
                android:textDirection="locale"
                android:clickable="false"
-               android:focusable="false" >
+               android:focusable="false">
            <!-- do not add spinner items here! -->
            </Spinner>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_red_text_view"
                style="@style/BrickText"
-               android:text="@string/phiro_rgb_led_red" >
+               android:text="@string/phiro_rgb_led_red">
            </TextView>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_action_red_edit_text"
                style="@style/BrickEditText"
                app:layout_inputType="number"
-               app:layout_textField="true" >
+               app:layout_textField="true">
            </TextView>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_green_text_view"
                style="@style/BrickText"
-               android:text="@string/phiro_rgb_led_green" >
+               android:text="@string/phiro_rgb_led_green">
            </TextView>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_action_green_edit_text"
                style="@style/BrickEditText"
                app:layout_inputType="number"
-               app:layout_textField="true" >
+               app:layout_textField="true">
            </TextView>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_blue_text_view"
                style="@style/BrickText"
-               android:text="@string/phiro_rgb_led_blue" >
+               android:text="@string/phiro_rgb_led_blue">
            </TextView>
 
            <TextView
                android:id="@+id/brick_phiro_rgb_led_action_blue_edit_text"
                style="@style/BrickEditText"
                app:layout_inputType="number"
-               app:layout_textField="true" >
+               app:layout_textField="true">
            </TextView>
 
-    </org.catrobat.catroid.ui.BrickLayout >
+    </org.catrobat.catroid.ui.BrickLayout>
 
 </LinearLayout>

@@ -51,6 +51,7 @@ public class PrivacyPolicyDisclaimerTest {
 	@Rule
 	public DontGenerateDefaultProjectActivityInstrumentationRule<MainMenuActivity> baseActivityTestRule = new
 			DontGenerateDefaultProjectActivityInstrumentationRule<>(MainMenuActivity.class);
+
 	@Before
 	public void setUp() {
 		bufferedPreferenceSetting = PreferenceManager.getDefaultSharedPreferences(InstrumentationRegistry

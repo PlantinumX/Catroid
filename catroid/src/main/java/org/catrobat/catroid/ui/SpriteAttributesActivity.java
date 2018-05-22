@@ -65,7 +65,9 @@ public class SpriteAttributesActivity extends BaseActivity implements
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({SCRIPTS, LOOKS, SOUNDS, NFC_TAGS})
-	@interface ButtonId {}
+	@interface ButtonId {
+	}
+
 	private static final int SCRIPTS = 0;
 	private static final int LOOKS = 1;
 	private static final int SOUNDS = 2;

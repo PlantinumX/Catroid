@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2018 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -22,12 +21,11 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
     android:textColor="@color/brick_category_fragment_text_color"
     android:textSize="@dimen/plus_button_size"
     android:text="@string/plus"
-    android:gravity="center"/>
+    android:gravity="center" />

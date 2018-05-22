@@ -44,7 +44,9 @@ public class CategoryListRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({DEFAULT, COLLISION, NXT, EV3})
-	public @interface CategoryListItemType{}
+	public @interface CategoryListItemType {
+	}
+
 	public static final int DEFAULT = 0;
 	public static final int COLLISION = 1;
 	public static final int NXT = 2;
@@ -55,7 +57,8 @@ public class CategoryListRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 		public String header;
 		public int nameResId;
 		public String text;
-		public @CategoryListItemType int type;
+		public @CategoryListItemType
+		int type;
 
 		public CategoryListItem(int nameResId, String text, @CategoryListItemType int type) {
 			this.nameResId = nameResId;
@@ -97,7 +100,8 @@ public class CategoryListRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 	}
 
 	@Override
-	public @LayoutRes int getItemViewType(int position) {
+	public @LayoutRes
+	int getItemViewType(int position) {
 		return items.get(position).header != null
 				? R.layout.vh_category_list_item_with_headline
 				: R.layout.vh_category_list_item;
