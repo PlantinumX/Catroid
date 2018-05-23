@@ -22,7 +22,6 @@
  */
 package org.catrobat.catroid.content.bricks;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;

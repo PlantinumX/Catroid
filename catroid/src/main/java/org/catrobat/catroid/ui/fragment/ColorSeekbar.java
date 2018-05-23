@@ -35,7 +35,6 @@ import org.catrobat.catroid.R;
 import org.catrobat.catroid.content.bricks.Brick;
 import org.catrobat.catroid.content.bricks.FormulaBrick;
 import org.catrobat.catroid.formulaeditor.Formula;
-import org.catrobat.catroid.formulaeditor.FormulaEditorEditText;
 
 public class ColorSeekbar {
 
@@ -125,7 +124,6 @@ public class ColorSeekbar {
 		greenSeekBar = (SeekBar) seekbarView.findViewById(R.id.color_rgb_seekbar_green);
 		blueSeekBar = (SeekBar) seekbarView.findViewById(R.id.color_rgb_seekbar_blue);
 
-
 		TextView redText = (TextView) seekbarView.findViewById(R.id.color_rgb_textview_red);
 		redText.setOnClickListener(onClickListenerRgbText);
 
@@ -156,7 +154,7 @@ public class ColorSeekbar {
 						formulaEditorEditTextRed.setText(String.valueOf(seekBar.getProgress()));
 						break;
 					case R.id.color_rgb_seekbar_green:
- 						formulaEditorEditTextGreen.setText(String.valueOf(seekBar.getProgress()));
+						formulaEditorEditTextGreen.setText(String.valueOf(seekBar.getProgress()));
 						break;
 					case R.id.color_rgb_seekbar_blue:
 						formulaEditorEditTextBlue.setText(String.valueOf(seekBar.getProgress()));

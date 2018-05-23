@@ -35,7 +35,6 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -48,7 +47,6 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -77,8 +75,6 @@ import org.catrobat.catroid.ui.recyclerview.fragment.CategoryListFragment;
 import org.catrobat.catroid.ui.recyclerview.fragment.DataListFragment;
 import org.catrobat.catroid.utils.SnackbarUtil;
 import org.catrobat.catroid.utils.ToastUtil;
-
-import java.util.Map;
 
 import static org.catrobat.catroid.utils.SnackbarUtil.wasHintAlreadyShown;
 
@@ -308,7 +304,6 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 		fragmentView.setFocusableInTouchMode(true);
 		fragmentView.requestFocus();
 
-
 		context = getActivity();
 
 		brickView = getBrickOrCustomView();
@@ -319,7 +314,6 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 		formulaEditorKeyboard = (TableLayout) fragmentView.findViewById(R.id.formula_editor_keyboardview);
 		formulaEditorEditText.init(this);
-
 
 		fragmentView.getViewTreeObserver().addOnGlobalLayoutListener(this);
 
@@ -570,7 +564,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 
 		switch (mode) {
 			case SET_FORMULA_ON_CREATE_VIEW:
-				formulaEditorEditText.enterNewFormula(currentFormula.getInternFormulaState(),brickField);
+				formulaEditorEditText.enterNewFormula(currentFormula.getInternFormulaState(), brickField);
 				currentFormula.highlightTextField(brickView);
 				refreshFormulaPreviewString();
 				break;
@@ -591,7 +585,7 @@ public class FormulaEditorFragment extends Fragment implements ViewTreeObserver.
 				}
 				currentBrickField = brickField;
 				currentFormula = newFormula;
-				formulaEditorEditText.enterNewFormula(newFormula.getInternFormulaState(),brickField);
+				formulaEditorEditText.enterNewFormula(newFormula.getInternFormulaState(), brickField);
 				refreshFormulaPreviewString();
 				break;
 			default:

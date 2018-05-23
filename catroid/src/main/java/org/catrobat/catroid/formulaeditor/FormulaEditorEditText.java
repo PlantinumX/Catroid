@@ -45,7 +45,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 
 	private static final BackgroundColorSpan COLOR_ERROR = new BackgroundColorSpan(0xFFF00000);
 	private static final BackgroundColorSpan COLOR_HIGHLIGHT = new BackgroundColorSpan(0xFF33B5E5);
-	private static FormulaEditorHistory[] historys = {null,null,null};
+	private static FormulaEditorHistory[] historys = {null, null, null};
 	private int lastState = 0;
 	FormulaEditorFragment formulaEditorFragment = null;
 	private int absoluteCursorPosition = 0;
@@ -139,7 +139,6 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	public FormulaEditorEditText(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.context = context;
-
 	}
 
 	public void init(FormulaEditorFragment formulaEditorFragment) {
@@ -167,7 +166,7 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		}
 	}
 
-	public void enterNewFormula(InternFormulaState internFormulaState,Brick.BrickField brickField){
+	public void enterNewFormula(InternFormulaState internFormulaState, Brick.BrickField brickField) {
 		internFormula = internFormulaState.createInternFormulaFromState();
 		internFormula.generateExternFormulaStringAndInternExternMapping(context);
 
@@ -179,13 +178,10 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		internFormula.selectWholeFormula();
 		highlightSelection();
 
-		if(historys[lastState] == null)
-		{
+		if (historys[lastState] == null) {
 			historys[lastState] = new FormulaEditorHistory(internFormula.getInternFormulaState());
-
 		} else {
 			historys[lastState].init(internFormula.getInternFormulaState());
-
 		}
 	}
 
@@ -316,13 +312,11 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 	}
 
 	public void endEdit() {
-		for(int i = 0;i < 3;i++)
-		{
-			if(historys[i] != null)
+		for (int i = 0; i < 3; i++) {
+			if (historys[i] != null) {
 				historys[i].clear();
-
+			}
 		}
-
 
 		//historys[lastState].clear();
 	}
@@ -378,9 +372,8 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 		return newExternFormulaString;
 	}
 
-	private int getBrickfieldColour(Brick.BrickField brickField){
-		switch (brickField.name())
-		{
+	private int getBrickfieldColour(Brick.BrickField brickField) {
+		switch (brickField.name()) {
 			case "PEN_COLOR_RED":
 				return 0;
 			case "PEN_COLOR_GREEN":
@@ -397,7 +390,6 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 				return 0;
 		}
 	}
-
 
 	@Override
 	public boolean onTouch(View view, MotionEvent motion) {
