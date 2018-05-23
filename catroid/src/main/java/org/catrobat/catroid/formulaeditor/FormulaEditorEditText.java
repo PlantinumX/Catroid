@@ -317,8 +317,6 @@ public class FormulaEditorEditText extends EditText implements OnTouchListener {
 				historys[i].clear();
 			}
 		}
-
-		//historys[lastState].clear();
 	}
 
 	public void quickSelect() {
