@@ -25,9 +25,11 @@ package org.catrobat.catroid.stage;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import android.text.TextPaint;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -51,11 +53,11 @@ public class ShowTextActor extends Actor {
 	private UserVariable variableToShow;
 	private String variableNameToCompare;
 	private String variableValueWithoutDecimal;
-
+	private String color;
 	private Sprite sprite;
 	private UserBrick userBrick;
 
-	public ShowTextActor(UserVariable userVariable, int xPosition, int yPosition, Sprite sprite, UserBrick userBrick) {
+	public ShowTextActor(UserVariable userVariable, int xPosition, int yPosition, String color, Sprite sprite, UserBrick userBrick) {
 		this.variableToShow = userVariable;
 		this.variableNameToCompare = variableToShow.getName();
 		this.variableValueWithoutDecimal = null;
@@ -63,6 +65,7 @@ public class ShowTextActor extends Actor {
 		this.yPosition = yPosition;
 		this.sprite = sprite;
 		this.userBrick = userBrick;
+		this.color = color;
 	}
 
 	public static String convertToEnglishDigits(String value) {
@@ -102,18 +105,18 @@ public class ShowTextActor extends Actor {
 		}
 
 		if (variableToShow.isDummy()) {
-			drawText(batch, Constants.NO_VARIABLE_SELECTED, xPosition, yPosition);
+			drawText(batch, Constants.NO_VARIABLE_SELECTED, xPosition, yPosition, color);
 		} else {
 			for (UserVariable variable : variableList) {
 				if (variable.getName().equals(variableToShow.getName())) {
 					String variableValue = variable.getValue().toString();
 					if (variable.getVisible()) {
 						if (isNumberAndInteger(variableValue)) {
-							drawText(batch, variableValueWithoutDecimal, xPosition, yPosition);
+							drawText(batch, variableValueWithoutDecimal, xPosition, yPosition, color);
 						} else if (variableValue.isEmpty()) {
-							drawText(batch, Constants.NO_VALUE_SET, xPosition, yPosition);
+							drawText(batch, Constants.NO_VALUE_SET, xPosition, yPosition, color);
 						} else {
-							drawText(batch, variableValue, xPosition, yPosition);
+							drawText(batch, variableValue, xPosition, yPosition, color);
 						}
 					}
 					break;
@@ -139,12 +142,20 @@ public class ShowTextActor extends Actor {
 		}
 	}
 
-	private void drawText(Batch batch, String text, float posX, float posY) {
+	private void drawText(Batch batch, String text, float posX, float posY,String color) {
 		// Convert to bitmap
 		Paint paint = new Paint();
 		float textSizeInPx = textSize;
 		paint.setTextSize(textSizeInPx);
-		paint.setColor(android.graphics.Color.BLACK);
+		int[] rgb ={0, 0, 0};
+		if (color.length() < 7 || color.charAt(0) != '#' || color.length() > 8) {
+			paint.setColor(Color.BLACK);
+		} else
+		{
+			color = color.toUpperCase();
+			rgb = calculateColorRGBs(color);
+			paint.setColor((0xFF000000) | (rgb[0] << 16)|(rgb[1] << 8)|(rgb[2]));
+		}
 		paint.setAntiAlias(true);
 		paint.setTextAlign(Paint.Align.LEFT);
 		float baseline = -paint.ascent();
@@ -154,6 +165,7 @@ public class ShowTextActor extends Actor {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		canvas.drawText(text, 0, baseline, paint);
+
 		// Convert to texture
 		Texture tex = new Texture(bitmap.getWidth(), bitmap.getHeight(),
 				Pixmap.Format.RGBA8888);
@@ -162,8 +174,10 @@ public class ShowTextActor extends Actor {
 		GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
 		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
 		bitmap.recycle();
+
 		// Draw and dispose
 		float xOffset = 3.0f;
+		batch.setColor((float)rgb[0]/255, (float)rgb[1]/255, (float)rgb[2]/255, 1);
 		batch.draw(tex, posX - xOffset, posY - textSizeInPx);
 		batch.flush();
 		tex.dispose();
@@ -187,5 +201,14 @@ public class ShowTextActor extends Actor {
 
 	public UserBrick getUserBrick() {
 		return userBrick;
+	}
+
+	private int[] calculateColorRGBs(String color) {
+		int[] rgb = new int[3];
+		Integer colorValue = Integer.parseInt(color.substring(1,color.length()),16);
+		rgb[0] = (colorValue & 0xFF0000) >> 16;
+		rgb[1] = (colorValue & 0xFF00) >> 8;
+		rgb[2] = (colorValue & 0xFF);
+		return rgb;
 	}
 }

@@ -1114,6 +1114,7 @@
     <string name="brick_change_brightness">"Change brightness "</string>
     <string name="brick_set_color">"Set color "</string>
     <string name="brick_change_color">"Change color "</string>
+    <string name="brick_and_color">"and color: "</string>
     <string name="by_label">by</string>
     <string name="to_label">to</string>
     <string name="brick_clear_graphic_effect">Clear graphic effects</string>

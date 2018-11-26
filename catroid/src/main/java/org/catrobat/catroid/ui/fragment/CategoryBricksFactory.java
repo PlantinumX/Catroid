@@ -431,6 +431,8 @@ public class CategoryBricksFactory {
 			looksBrickList.add(new ThinkBubbleBrick(context.getString(R.string.brick_think_bubble_default_value)));
 			looksBrickList.add(new ThinkForBubbleBrick(context.getString(R.string.brick_think_bubble_default_value), 1.0f));
 		}
+		looksBrickList.add(new ShowTextBrick(BrickValues.X_POSITION, BrickValues.Y_POSITION));
+		looksBrickList.add(new ShowTextAndColorBrick(BrickValues.X_POSITION, BrickValues.Y_POSITION, BrickValues.SHOW_VARIABLE_COLOR));
 		looksBrickList.add(new SetTransparencyBrick(BrickValues.SET_TRANSPARENCY));
 		looksBrickList.add(new ChangeTransparencyByNBrick(BrickValues.CHANGE_TRANSPARENCY_EFFECT));
 		looksBrickList.add(new SetBrightnessBrick(BrickValues.SET_BRIGHTNESS_TO));
@@ -478,6 +480,7 @@ public class CategoryBricksFactory {
 		dataBrickList.add(new SetVariableBrick(BrickValues.SET_VARIABLE));
 		dataBrickList.add(new ChangeVariableBrick(BrickValues.CHANGE_VARIABLE));
 		dataBrickList.add(new ShowTextBrick(BrickValues.X_POSITION, BrickValues.Y_POSITION));
+		dataBrickList.add(new ShowTextAndColorBrick(BrickValues.X_POSITION, BrickValues.Y_POSITION, BrickValues.SHOW_VARIABLE_COLOR));
 		dataBrickList.add(new HideTextBrick());
 		dataBrickList.add(new AddItemToUserListBrick(BrickValues.ADD_ITEM_TO_USERLIST));
 		dataBrickList.add(new DeleteItemOfUserListBrick(BrickValues.DELETE_ITEM_OF_USERLIST));

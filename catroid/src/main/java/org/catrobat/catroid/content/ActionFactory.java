@@ -32,6 +32,7 @@ import org.catrobat.catroid.camera.CameraManager;
 import org.catrobat.catroid.common.BrickValues;
 import org.catrobat.catroid.common.LookData;
 import org.catrobat.catroid.common.SoundInfo;
+import org.catrobat.catroid.content.actions.*;
 import org.catrobat.catroid.content.actions.AddItemToUserListAction;
 import org.catrobat.catroid.content.actions.ArduinoSendDigitalValueAction;
 import org.catrobat.catroid.content.actions.ArduinoSendPWMValueAction;
@@ -1044,6 +1045,17 @@ public class ActionFactory extends Actions {
 	public Action createShowVariableAction(Sprite sprite, Formula xPosition, Formula yPosition, UserVariable userVariable) {
 		ShowTextAction action = action(ShowTextAction.class);
 		action.setPosition(xPosition, yPosition);
+		action.setVariableToShow(userVariable);
+		action.setSprite(sprite);
+		UserBrick userBrick = ProjectManager.getInstance().getCurrentUserBrick();
+		action.setUserBrick(userBrick);
+		return action;
+	}
+
+	public Action createShowVariableAndColorAction(Sprite sprite, Formula xPosition, Formula yPosition,Formula color ,UserVariable userVariable) {
+		ShowTextAndColorAction action = action(ShowTextAndColorAction.class);
+		action.setPosition(xPosition, yPosition);
+		action.setColor(color);
 		action.setVariableToShow(userVariable);
 		action.setSprite(sprite);
 		UserBrick userBrick = ProjectManager.getInstance().getCurrentUserBrick();

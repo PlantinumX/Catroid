@@ -37,12 +37,13 @@ import org.catrobat.catroid.formulaeditor.UserVariable;
 import org.catrobat.catroid.stage.ShowTextActor;
 import org.catrobat.catroid.stage.StageActivity;
 
-public class ShowTextAction extends TemporalAction {
+public class ShowTextAndColorAction extends TemporalAction {
 
-	public static final String TAG = ShowTextAction.class.getSimpleName();
+	public static final String TAG = ShowTextAndColorAction.class.getSimpleName();
 
 	private Formula xPosition;
 	private Formula yPosition;
+	private Formula color;
 	private UserVariable variableToShow;
 
 	private Sprite sprite;
@@ -54,6 +55,7 @@ public class ShowTextAction extends TemporalAction {
 		try {
 			int xPosition = this.xPosition.interpretInteger(sprite);
 			int yPosition = this.yPosition.interpretInteger(sprite);
+			String color = this.color.interpretString(sprite);
 			if (StageActivity.stageListener != null) {
 				Array<Actor> stageActors = StageActivity.stageListener.getStage().getActors();
 				ShowTextActor dummyActor = new ShowTextActor(new UserVariable("dummyActor"), 0, 0, null, sprite, userBrick);
@@ -69,7 +71,7 @@ public class ShowTextAction extends TemporalAction {
 					}
 				}
 
-				actor = new ShowTextActor(variableToShow, xPosition, yPosition, null,sprite, userBrick);
+				actor = new ShowTextActor(variableToShow, xPosition, yPosition, color, sprite, userBrick);
 				StageActivity.stageListener.addActor(actor);
 			}
 
@@ -97,6 +99,10 @@ public class ShowTextAction extends TemporalAction {
 	public void setPosition(Formula xPosition, Formula yPosition) {
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
+	}
+
+	public void setColor(Formula color) {
+		this.color = color;
 	}
 
 	public void setSprite(Sprite sprite) {
