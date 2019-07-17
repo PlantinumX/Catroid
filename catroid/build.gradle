@@ -512,9 +512,9 @@ static def getGitCommitInfo() {
     return "branch $branch @$hash"
 }
 
-project.gradle.taskGraph.whenReady {
-    connectedCatroidDebugAndroidTest.ignoreFailures = true
-}
+//project.gradle.taskGraph.whenReady {
+//    connectedCatroidDebugAndroidTest.ignoreFailures = true
+//}
 
 task copyAndroidNatives() {
     file("src/main/jniLibs/armeabi-v7a/").mkdirs()
