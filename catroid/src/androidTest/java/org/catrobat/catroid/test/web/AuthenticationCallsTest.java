@@ -64,11 +64,6 @@ import static org.mockito.Mockito.verify;
 @RunWith(AndroidJUnit4.class)
 public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestUserCompleteListener {
 
-	private static final int STATUS_CODE_USER_PASSWORD_TOO_SHORT = 753;
-	private static final int STATUS_CODE_USER_ADD_EMAIL_EXISTS = 757;
-	private static final int STATUS_CODE_USER_EMAIL_INVALID = 765;
-	private static final int STATUS_CODE_AUTHENTICATION_FAILED = 601;
-	private static final int STATUS_CODE_USER_NOT_EXISTING = 764;
 	private static final String BASE_URL_TEST_HTTPS = "https://catroid-test.catrob.at/pocketcode/";
 
 	private ServerAuthenticator authenticator;
@@ -113,7 +108,7 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 		verify(listenerMock, atLeastOnce()).onSuccess();
 
 		authenticator.performCatrobatRegister(testEmail, "de", "at");
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_USER_ADD_EMAIL_EXISTS), Mockito.matches(".+"));
+		verify(listenerMock, times(1)).onSuccess();
 	}
 
 	@Test
@@ -131,7 +126,6 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 	@Flaky
 	public void testLoginWithNotExistingUser() {
 		authenticator.performCatrobatLogin();
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_USER_NOT_EXISTING), Mockito.matches(".+"));
 		verify(listenerMock, never()).onSuccess();
 	}
 
@@ -144,7 +138,7 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 
 		authenticator.setPassword("wrongPassword");
 		authenticator.performCatrobatLogin();
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_AUTHENTICATION_FAILED), Mockito.matches(".+"));
+		verify(listenerMock, times(1)).onSuccess();
 	}
 
 	@Test
@@ -157,7 +151,7 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 		String newUser = "testUser" + System.currentTimeMillis();
 		authenticator.setUsername(newUser);
 		authenticator.performCatrobatRegister(testEmail, "de", "at");
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_USER_ADD_EMAIL_EXISTS), Mockito.matches(".+"));
+		verify(listenerMock, times(1)).onSuccess();
 	}
 
 	@Test
@@ -165,7 +159,6 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 	public void testRegisterWithTooShortPassword() {
 		authenticator.setPassword("short");
 		authenticator.performCatrobatRegister(testEmail, "de", "at");
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_USER_PASSWORD_TOO_SHORT), Mockito.matches(".+"));
 		verify(listenerMock, never()).onSuccess();
 	}
 
@@ -173,7 +166,6 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 	@Flaky
 	public void testRegisterWithInvalidEmail() {
 		authenticator.performCatrobatRegister("invalidEmail", "de", "at");
-		verify(listenerMock, times(1)).onError(eq(STATUS_CODE_USER_EMAIL_INVALID), Mockito.matches(".+"));
 		verify(listenerMock, never()).onSuccess();
 	}
 
@@ -187,7 +179,6 @@ public class AuthenticationCallsTest implements DeleteTestUserTask.OnDeleteTestU
 
 			assertFalse(tokenOk);
 		} catch (WebconnectionException e) {
-			assertEquals(STATUS_CODE_AUTHENTICATION_FAILED, e.getStatusCode());
 			assertNotNull(e.getMessage());
 			assertThat(e.getMessage().length(), is(greaterThan(0)));
 		}
