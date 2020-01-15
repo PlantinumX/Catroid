@@ -403,10 +403,9 @@ public class ProjectUploadActivity extends BaseActivity implements
 				Utils.logoutUser(this);
 				startSignInWorkflow();
 			} else {
-				ToastUtil.showError(this, R.string.error_internet_connection);
-				return;
+				ToastUtil.showError(this, R.string.error_internet_connection);return;
 			}
-		} else if (!tokenValid) {
+		} else if (!tokasdälökdsaölkasdlöasdölkenValid) {
 			startSignInWorkflow();
 			return;
 		}
