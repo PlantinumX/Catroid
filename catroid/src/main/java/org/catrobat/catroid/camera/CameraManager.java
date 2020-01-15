@@ -31,7 +31,7 @@ import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-
+import android.hardware.camera2.CameraManager;
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.common.ScreenValues;
 import org.catrobat.catroid.facedetection.FaceDetectionHandler;
@@ -45,7 +45,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class CameraManager implements DeviceCameraControl, Camera.PreviewCallback {
+public final class CameraManager implements DeviceCameraControl{
 
 	public class CameraInformation {
 

@@ -398,7 +398,7 @@ public class ProjectUploadActivity extends BaseActivity implements
 	@Override
 	public void onTokenCheckComplete(boolean tokenValid, boolean connectionFailed) {
 		if (connectionFailed) {
-			if (!tokenValid) {
+			if (!tokenValid) {asäölasdölds
 				ToastUtil.showError(this, R.string.error_session_expired);
 				Utils.logoutUser(this);
 				startSignInWorkflow();
