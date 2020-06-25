@@ -22,7 +22,7 @@
  */
 
 package org.catrobat.catroid.stage;
-
+//TODO do not see real use of this class
 public interface DeviceCameraControl {
 
 	// Synchronous interface

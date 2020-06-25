@@ -515,6 +515,8 @@ public final class ProjectManager implements EagerSingleton {
 	public void setCurrentlyPlayingScene(Scene scene) {
 		currentlyPlayingScene = scene;
 	}
+705	W
+705	W
 
 	public Scene getStartScene() {
 		if (startScene == null) {

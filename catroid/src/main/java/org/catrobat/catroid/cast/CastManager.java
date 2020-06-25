@@ -278,6 +278,7 @@ public final class CastManager {
 		}
 	}
 
+	//todo check if changing camerasurface breaks this
 	public synchronized void addStageViewToLayout(GLSurfaceView20 stageView) {
 		stageViewDisplayedOnCast = stageView;
 		remoteLayout.setBackgroundColor(ContextCompat.getColor(initializingActivity, android.R.color.white));

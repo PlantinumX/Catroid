@@ -31,6 +31,8 @@ import android.view.SurfaceView;
 
 import org.catrobat.catroid.camera.CameraManager;
 
+
+//todo needs also change because old deprecated code
 public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback {
 	private static final String TAG = CameraSurface.class.getSimpleName();
 

@@ -61,9 +61,15 @@ public final class CameraManager implements DeviceCameraControl, Camera.PreviewC
 
 	public static final int TEXTURE_NAME = 1;
 	private static final String TAG = CameraManager.class.getSimpleName();
+	//is the singleton
 	private static CameraManager instance;
+
+	//this is old so will replace it with camera2
 	private Camera currentCamera;
+	//will be implemented differently as seen in yt videos
 	private SurfaceTexture texture;
+
+	//this one is used for facedetector
 	private List<JpgPreviewCallback> callbacks = new ArrayList<>();
 	private int previewFormat;
 	private int previewWidth;
@@ -76,9 +82,13 @@ public final class CameraManager implements DeviceCameraControl, Camera.PreviewC
 
 	private int cameraCount = 0;
 
+	//need a reference otherwise most of our android related things will not work
 	StageActivity stageActivity = null;
+
+	//for what exactly is the camerasurface ??
 	CameraSurface cameraSurface = null;
 
+	//this locks are important because the code starts assync tasks
 	public final Object cameraChangeLock = new Object();
 	private final Object cameraBaseLock = new Object();
 	private boolean wasRunning = false;
@@ -477,6 +487,7 @@ public final class CameraManager implements DeviceCameraControl, Camera.PreviewC
 		stageActivity.post(r);
 	}
 
+	//todo not used really
 	@Override
 	public void pausePreviewAsync() {
 		if (state == CameraState.previewPaused
